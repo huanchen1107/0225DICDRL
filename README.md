@@ -1,10 +1,15 @@
 # Huan Chen — Personal Web Page
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-A358FF?style=for-the-badge&logo=github)](https://huanchen1107.github.io/0225DICDRL/)
+
 A single-page personal portfolio website for **Huan Chen**, styled after the modern dark aesthetic of the [Hostinger Adelina template](https://builder.hostinger.com/templates?preview=adelina&hideRating=1).
 
-## 🌐 Live Preview
+## 🌐 Live Demo
 
-Open `index.html` in any modern browser to view the page locally.
+👉 **[https://huanchen1107.github.io/0225DICDRL/](https://huanchen1107.github.io/0225DICDRL/)**
+
+> To activate GitHub Pages hosting, go to your repo → **Settings → Pages → Source: Deploy from a branch → Branch: `main` → Folder: `/ (root)` → Save**.  
+> The site will be live within a minute.
 
 ---
 
