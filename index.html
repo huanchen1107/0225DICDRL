@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Huan Chen - Personal Portfolio">
+  <title>Huan Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&family=Syne:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Noise Overlay for Texture -->
+  <div class="noise-overlay"></div>
+  
+  <!-- Gradient Blob for background depth -->
+  <div class="gradient-blob"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <span class="icon">✹</span>
+      <span>HUAN CHEN</span>
+    </div>
+    <div class="availability">
+      <div class="dot"></div>
+      <span>AVAILABLE FOR WORK</span>
+    </div>
+  </header>
+
+  <!-- Main Hero Content -->
+  <main class="hero">
+    <div class="hero-content">
+      <div class="title-container">
+        <h1 class="first-name">HUAN</h1>
+        
+        <!-- Overlapping Script Text -->
+        <div class="floating-text">
+          <span>Digital Explorer</span>
+        </div>
+        
+        <h1 class="last-name">CHEN</h1>
+      </div>
+    </div>
+    
+    <!-- Time Badge / Display (Positioned fixed/absolute) -->
+    <div class="time-container" id="time-badge">
+      <div class="time-label">LOCAL ORBITAL TIME</div>
+      <div class="time-value" id="current-time">00:00:00</div>
+      <div class="time-date" id="current-date">Fetching Date...</div>
+    </div>
+  </main>
+  
+  <script src="app.js"></script>
+</body>
+</html>

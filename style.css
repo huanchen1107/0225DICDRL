@@ -1,0 +1,281 @@
+:root {
+  --bg-color: #030303;
+  --text-primary: #FFFFFF;
+  --text-secondary: #AAAAAA;
+  --accent-color: #A358FF; /* Vibrant Purple */
+  --font-display: 'Syne', sans-serif;
+  --font-script: 'Playfair Display', serif;
+  --font-ui: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle noise texture */
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.08;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="1" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+}
+
+.gradient-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vw;
+  height: 60vw;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(163,88,255,0.15) 0%, rgba(5,5,5,0) 60%);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: pulseBlob 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pulseBlob {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 4rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-ui);
+}
+
+.icon {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  animation: spinStar 8s linear infinite;
+}
+
+@keyframes spinStar {
+  100% { transform: rotate(360deg); }
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.2s ease-out;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.first-name, .last-name {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 15vw, 16rem);
+  line-height: 0.85;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+  color: var(--text-primary);
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideUpTitle 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.last-name {
+  animation-delay: 0.15s;
+}
+
+.floating-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-6deg);
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-style: italic;
+  color: var(--accent-color);
+  white-space: nowrap;
+  z-index: 3;
+  opacity: 0;
+  text-shadow: 0 4px 20px rgba(163,88,255,0.4);
+  animation: fadeInRotate 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
+  pointer-events: none;
+}
+
+.time-container {
+  position: absolute;
+  bottom: 8%;
+  right: 6%;
+  background: rgba(10, 10, 10, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2.5rem;
+  border-radius: 24px; 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUpBadge 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.time-container:hover {
+  border-color: rgba(163, 88, 255, 0.4);
+  box-shadow: 0 10px 50px rgba(163, 88, 255, 0.2);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.time-label {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.time-value {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.time-date {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-top: 0.4rem;
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 600;
+}
+
+@keyframes slideUpTitle {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpBadge {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRotate {
+  from { opacity: 0; transform: translate(-50%, -50%) rotate(-12deg) scale(0.9); }
+  to { opacity: 1; transform: translate(-50%, -50%) rotate(-6deg) scale(1); }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .first-name, .last-name {
+    font-size: 22vw;
+  }
+  
+  .floating-text {
+    font-size: 9vw;
+  }
+  
+  .time-container {
+    bottom: 5%;
+    right: 50%;
+    transform: translateX(50%) translateY(30px);
+    align-items: center;
+    padding: 1.2rem 2rem;
+    width: max-content;
+    animation: slideUpBadgeMobile 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
+  }
+  
+  @keyframes slideUpBadgeMobile {
+    from { opacity: 0; transform: translateX(50%) translateY(30px); }
+    to { opacity: 1; transform: translateX(50%) translateY(0); }
+  }
+
+  .time-container:hover {
+    transform: translateX(50%) translateY(-5px);
+  }
+}
