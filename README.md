@@ -11,6 +11,10 @@ A single-page personal portfolio website for **Huan Chen**, styled after the mod
 > To activate GitHub Pages hosting, go to your repo → **Settings → Pages → Source: Deploy from a branch → Branch: `main` → Folder: `/ (root)` → Save**.  
 > The site will be live within a minute.
 
+## 📸 Preview
+
+![Huan Chen Homepage Preview](preview.png)
+
 ---
 
 ## ✨ Features
