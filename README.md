@@ -10,16 +10,30 @@ Open `index.html` in any modern browser to view the page locally.
 
 ## ✨ Features
 
-- **Dynamic Live Clock** — Displays the current local time updating every second in a floating glassmorphism badge
-- **Parallax Mouse Effect** — Subtle 3D depth effect as you move your cursor across the page
-- **Premium Dark Design** — Deep black background with vibrant electric purple accents inspired by the Adelina template
-- **Layered Typography** — Three font styles working together:
-  - `Syne ExtraBold` — Ultra-chunky display font for the main name
-  - `Playfair Display Italic` — Elegant cursive overlay for depth
+- **Dynamic Live Clock** — Displays the current local time, updating every second inside a floating glassmorphism badge
+- **Fully Responsive (RWD)** — Fluid layouts across all screen sizes: mobile (xs/sm), tablet (md), and desktop (lg) using `clamp()` and four media query breakpoints
+- **Parallax Mouse Effect** — Subtle 3D depth as you move your cursor (automatically disabled on touch devices)
+- **Premium Dark Design** — Deep black background with vibrant electric purple accents
+- **Layered Typography** — Three font styles creating visual depth:
+  - `Syne ExtraBold` — Ultra-chunky display font for the hero name
+  - `Playfair Display Italic` — Elegant cursive overlay for contrast
   - `Inter` — Clean sans-serif for UI labels and metadata
-- **Animated Entry** — Staggered slide-up animations on page load for all elements
-- **Responsive Design** — Adapts gracefully to mobile screen sizes
-- **Glassmorphism UI** — Frosted-glass time badge with hover effects and purple glow
+- **Animated Entry** — Staggered slide-up animations on page load
+- **Glassmorphism UI** — Frosted-glass time badge with hover glow effect
+- **Accessibility** — Respects `prefers-reduced-motion` system setting
+
+---
+
+## 📐 Responsive Breakpoints
+
+| Breakpoint | Range         | Behavior |
+|------------|---------------|----------|
+| `xs`       | < 480px       | Compact header, centered time badge, enlarged font scale |
+| `sm`       | 480–767px     | Large phone layout, badge anchored bottom-right |
+| `md`       | 768–1023px    | Tablet layout with adjusted spacing and sizing |
+| `lg`       | ≥ 1024px      | Full desktop experience (default) |
+
+All font sizes and spacings use **CSS `clamp()`** for smooth, continuous scaling between breakpoints — no sudden jumps.
 
 ---
 
@@ -27,8 +41,8 @@ Open `index.html` in any modern browser to view the page locally.
 
 ```
 L1/
-├── index.html   # Page structure and semantic HTML
-├── style.css    # All styling: layout, typography, animations, glassmorphism
+├── index.html   # Semantic page structure
+├── style.css    # RWD styles: fluid type, layout, animations, glassmorphism
 ├── app.js       # Live clock logic + mouse parallax effect
 └── README.md    # This file
 ```
@@ -51,8 +65,8 @@ L1/
 ## 🛠️ Tech Stack
 
 - **HTML5** — Semantic page structure
-- **Vanilla CSS3** — Custom properties, keyframe animations, backdrop-filter, clamp()
-- **Vanilla JavaScript** — No frameworks or dependencies
+- **Vanilla CSS3** — Custom properties, `clamp()`, keyframe animations, `backdrop-filter`, RWD media queries
+- **Vanilla JavaScript** — No frameworks or build tools required
 
 ---
 
@@ -65,8 +79,8 @@ No build step required. Simply open the file in a browser:
 git clone https://github.com/huanchen1107/0225DICDRL.git
 
 # Open in browser
-open index.html   # macOS
-start index.html  # Windows
+start index.html   # Windows
+open index.html    # macOS
 ```
 
 ---
